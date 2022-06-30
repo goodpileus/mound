@@ -1,23 +1,68 @@
+(function($) {
+  $.dragScroll = function(options) {
+    var settings = $.extend({
+      scrollVertical: true,
+      scrollHorizontal: false,
+      cursor: null
+    }, options);
 
-var clicked = false, clickY;
-$(document).on({
-    'mousemove': function(e) {
-        clicked && updateScrollPos(e);
-    },
-    'mousedown': function(e) {
+    var clicked = false,
+      clickY, clickX;
+
+    var getCursor = function() {
+      if (settings.cursor) return settings.cursor;
+      if (settings.scrollVertical && settings.scrollHorizontal) return 'grabbing';
+      if (settings.scrollVertical) return 'grabbing';
+      if (settings.scrollHorizontal) return 'grabbing';
+    }
+
+    var updateScrollPos = function(e, el) {
+      $('html').css('cursor', getCursor());
+      var $el = $(el);
+      settings.scrollVertical && $el.scrollTop($el.scrollTop() + (clickY - e.pageY));
+      settings.scrollHorizontal && $el.scrollLeft($el.scrollLeft() + (clickX - e.pageX));
+    }
+
+    $(document).on({
+      'mousemove': function(e) {
+        clicked && updateScrollPos(e, this);
+      },
+      'mousedown': function(e) {
         clicked = true;
         clickY = e.pageY;
-    },
-    'mouseup': function() {
+        clickX = e.pageX;
+      },
+      'mouseup': function() {
         clicked = false;
         $('html').css('cursor', 'grab');
-    }
-});
+      }
+    });
+  }
+}(jQuery))
 
-var updateScrollPos = function(e) {
-    $('html').css('cursor', 'grabbing');
-    $(window).scrollTop($(window).scrollTop() + (clickY - e.pageY));
-}
+$.dragScroll();
+
+
+
+// var clicked = false, clickY;
+// $(document).on({
+//     'mousemove': function(e) {
+//         clicked && updateScrollPos(e);
+//     },
+//     'mousedown': function(e) {
+//         clicked = true;
+//         clickY = e.pageY;
+//     },
+//     'mouseup': function() {
+//         clicked = false;
+//         $('html').css('cursor', 'grab');
+//     }
+// });
+//
+// var updateScrollPos = function(e) {
+//     $('html').css('cursor', 'grabbing');
+//     $(window).scrollTop($(window).scrollTop() + (clickY - e.pageY));
+// }
 
 
 // scrollbooster to enable drag scrolling
@@ -75,9 +120,9 @@ var updateScrollPos = function(e) {
 
 
 // smooth scroll on clicking nav items
-// $('a').click(function(){
-//     $('html, body').animate({
-//         scrollTop: $( $(this).attr('href') ).offset().top
-//     }, 200);
-//     return false;
-// });
+$('a').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top
+    }, 200);
+    return false;
+});

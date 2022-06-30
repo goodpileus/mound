@@ -22,13 +22,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   cursor: grab;
-
-}
-
-::selection {
-  background: transparent;
 }
 
 body {
@@ -38,6 +33,12 @@ body {
   font-family: 'routerbook', monospace;
   /* overflow:auto;
   height:100vh; */
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* TYPOGRAPHY, TEXT */
