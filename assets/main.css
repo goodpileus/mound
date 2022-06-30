@@ -43,18 +43,19 @@ body {
 
 /* TYPOGRAPHY, TEXT */
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 .5rem 0;
   background: var(--backgroundcolor);
   display: inline-block;
   font-weight: normal;
   font-size: 1.2rem;
-  padding:4px;
+  padding:.3rem;
 }
 
 p {
   background: var(--backgroundcolor);
   max-width: 600px;
-  padding:4px;
+  padding:.3rem;
+  margin: 0 0 .5rem 0;
   /* border:1px solid var(--textcolor); */
 }
 
@@ -69,15 +70,15 @@ nav {
   flex-direction: column;
   gap: .5rem;
   position: fixed;
-  right: 1rem;
-  top: 1rem;
+  right: .5rem;
+  top: .5rem;
 }
 
 nav a {
   background-color: var(--backgroundcolor);
   color: var(--textcolor);
   border: 1px solid var(--textcolor);
-  padding:10px;
+  padding:.5rem;
   text-align: center;
   text-decoration: none;
 }
@@ -85,7 +86,7 @@ nav a {
 /* SECTIONS */
 section {
   border-bottom: 1px solid var(--textcolor);
-  padding: 1rem;
+  padding: .5rem;
   min-height: 400px;
 }
 
@@ -99,11 +100,12 @@ section {
 }
 
 #mound h1 {
-  margin: 1rem;
+  margin: .5rem;
 }
 
 svg {
   margin-bottom:60px;
+  /* height:400px; */
 }
 
 .mound-svg{
@@ -124,7 +126,7 @@ svg {
 }
 
 #p2, .p2 {
-  background-image: url('../img/hatches/7b.gif');
+  background-image: url('../img/hatches/4b.gif');
 }
 
 #bedrock, .bedrock {
