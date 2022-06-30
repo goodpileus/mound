@@ -1,0 +1,138 @@
+/* GENERAL, TOTAL DOCUMENT */
+* {
+  box-sizing: border-box;
+}
+
+/* variables for colors */
+:root {
+  --textcolor: #6c5234;
+  --linkcolor: #587149;
+
+  --backgroundcolor: #eaecde;
+  --altbackgroundcolor: #d6d4c0;
+}
+
+/* font source */
+@font-face {
+    font-family: 'routerbook';
+    src: url('fonts/router-book.woff2') format('woff2'),
+         url('fonts/router-book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+  cursor: grab;
+
+}
+
+::selection {
+  background: transparent;
+}
+
+body {
+  margin: 0;
+  background-color: var(--backgroundcolor);
+  color: var(--textcolor);
+  font-family: 'routerbook', monospace;
+  /* overflow:auto;
+  height:100vh; */
+}
+
+/* TYPOGRAPHY, TEXT */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem 0;
+  background: var(--backgroundcolor);
+  display: inline-block;
+  font-weight: normal;
+  font-size: 1.2rem;
+  padding:4px;
+}
+
+p {
+  background: var(--backgroundcolor);
+  max-width: 600px;
+  padding:4px;
+  /* border:1px solid var(--textcolor); */
+}
+
+a {
+  color: var(--linkcolor);
+}
+
+/* NAV */
+/* styles for the nav buttons */
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+}
+
+nav a {
+  background-color: var(--backgroundcolor);
+  color: var(--textcolor);
+  border: 1px solid var(--textcolor);
+  padding:10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* SECTIONS */
+section {
+  border-bottom: 1px solid var(--textcolor);
+  padding: 1rem;
+  min-height: 400px;
+}
+
+/* mound header section */
+#mound {
+  padding:0;
+  min-height:400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#mound h1 {
+  margin: 1rem;
+}
+
+svg {
+  margin-bottom:60px;
+}
+
+.mound-svg{
+  fill:none;
+  stroke:var(--textcolor);
+  stroke-miterlimit:1px;
+  stroke-width: 1px;
+}
+
+/* other sections */
+#info, .info {
+  background-image: url('../img/hatches/2b.gif');
+}
+
+#p1, .p1 {
+  background-image: url('../img/hatches/10b.gif');
+
+}
+
+#p2, .p2 {
+  background-image: url('../img/hatches/7b.gif');
+}
+
+#bedrock, .bedrock {
+  background-image: url('../img/hatches/8b.gif');
+}
+
+#main {
+  overflow:auto;
+  height:100vh;
+  width:100%;
+  /* scroll-behavior:smooth; */
+}
