@@ -315,6 +315,7 @@ section .label {
   position: relative;
   left: 0;
   border-right:1px solid;
+  flex-shrink:0;
 }
 
 section .label h1{
@@ -471,11 +472,12 @@ section .label h1{
 
 /* alignments */
 .align {
-  width: calc(var(--content-width));
+  max-width: calc(var(--content-width));
   position: relative;
   margin:12rem 0 3rem 0;
   background: white;
   /* padding:.5rem; */
+  width: 100%;
 }
 
 .align:first-of-type {
@@ -536,4 +538,18 @@ main h1:first-of-type {
   background: var(--backgroundcolor);
   padding:.3rem;
   margin-bottom: .5rem;
+}
+
+@media screen and (max-width:800px) {
+
+  .inner {
+    padding: 3rem 1rem;
+  }
+
+  .left, .left-half, .center, .right-half, .right {
+    left:0;
+    margin-left:0;
+    margin-right:0;
+  }
+  
 }
