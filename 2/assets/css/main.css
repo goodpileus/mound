@@ -375,22 +375,43 @@ section .label h1{
   background-image: url('../../img/hatches/sand1.gif');
 }
 
-svg {
-  /* margin-bottom:60px; */
-  /* height:400px; */
-  /* height:130px; */
-  max-width: 100%;
-    height: auto;
-
-}
-
 .mound-svg{
   fill:none;
   stroke:var(--textcolor);
   stroke-miterlimit:1px;
   stroke-width: 1px;
+}
 
-  
+#mound svg {
+  /* margin-bottom:60px; */
+  /* height:400px; */
+  /* height:130px; */
+  max-width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.mound-path {
+  fill:white;
+}
+
+.mound-path.day {
+  fill: white;
+}
+
+.mound-path.night {
+  fill:black;
+}
+
+#mound .inner::after {
+  content:'';
+  width:100%;
+  height:100%;
+  position:absolute;
+  background:url('../../img/stars2.gif');
+  /* background-size: cover; */
+  top:0;
+  left:0;
 }
 
 .mound-mask{

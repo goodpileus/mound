@@ -23,7 +23,7 @@ $( "img" ).click(function() {
 
 
     
-// set classes
+// random alignments
 var classes = new Array ('left', 'left-half', 'center', 'right-half', 'right');
 
 var length = classes.length;
@@ -36,3 +36,17 @@ $.each( segments, function(key, value) {
   console.log ("IN");
   $(value).addClass( classes[ Math.floor ( Math.random() * length ) ] );
 });
+
+
+//initialize date object
+var d = new Date();
+var currentHour = d.getHours(); //note 0-23
+
+if (currentHour < 18 || currentHour > 4) 
+ { 
+     $('.mound-path').addClass('night');
+  }
+else
+{
+   $('.mound-path').addClass('day');
+}
