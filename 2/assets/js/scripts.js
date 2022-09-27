@@ -19,3 +19,20 @@ openTarget();
 $( "img" ).click(function() {
   $( this ).toggleClass('active');
 });
+
+
+
+    
+// set classes
+var classes = new Array ('left', 'left-half', 'center', 'right-half', 'right');
+
+var length = classes.length;
+
+var segments = $('.align');
+
+// loop through all a-tags and apply color randomly
+$.each( segments, function(key, value) {
+  // get random value/class-name from array and add it using the addClass function
+  console.log ("IN");
+  $(value).addClass( classes[ Math.floor ( Math.random() * length ) ] );
+});

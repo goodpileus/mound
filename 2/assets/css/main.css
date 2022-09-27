@@ -101,16 +101,23 @@ img.active,
 .gallery a {
   position: absolute;
   display: none;
-  bottom: 0.4rem;
-  right: 0.2rem;  
+  bottom: 0.6rem;
+  right: 0.3rem;  
   background: white;
-  padding:.5rem;
+  padding:2px;
   text-decoration: none;
   color: var(--textcolor);
+
+  cursor:zoom-in;
 }
 
 .gallery a::after {
-  content: "zoom";
+  content: "";
+  background: url('../../img/glass2.png');
+  width: 15px;
+  height: 15px;
+  display: block;
+  background-size: 100%;
 }
 
 .gallery img.active + a {
@@ -151,7 +158,29 @@ summary {
   padding: .5rem;
   list-style: none;
   margin:0;
-  
+  position: relative;
+}
+
+summary a {
+  position: absolute;
+  display: none;
+  bottom: 36px;
+  right: 12px; 
+  background: inherit;
+  padding:2px;
+  text-decoration: none;
+  color: var(--textcolor);
+  cursor:zoom-in;
+}
+
+
+summary a::after {
+  content: "";
+  background: url('../../img/glass2.png');
+  width: 15px;
+  height: 15px;
+  display: block;
+  background-size: 100%;
 }
 
 summary::after {
@@ -161,11 +190,15 @@ summary::after {
   /* padding-bottom:.3rem; */
 }
 
+details[open] summary a {
+  display:block;
+}
+
 summary:hover {
   /* background:rgb(224, 224, 224); */
   /* background:#669c51; */
   /* color:white; */
-  background-color: #fffb8f;
+  background-color: #ffd4b7;
   /* background-color: rgb(192, 192, 226); */
   
   border-bottom: 1px solid;
@@ -316,6 +349,7 @@ section .label h1{
 .inner {
   width:100%;
   padding: 3rem calc(66px + 1rem);
+  position: relative;
 }
 
 /* mound header section */
@@ -338,11 +372,16 @@ section .label h1{
   display:flex;
   flex-direction: column;
   justify-content: space-between;
+  background-image: url('../../img/hatches/sand1.gif');
 }
 
 svg {
-  margin-bottom:60px;
+  /* margin-bottom:60px; */
   /* height:400px; */
+  /* height:130px; */
+  max-width: 100%;
+    height: auto;
+
 }
 
 .mound-svg{
@@ -350,25 +389,54 @@ svg {
   stroke:var(--textcolor);
   stroke-miterlimit:1px;
   stroke-width: 1px;
+
+  
+}
+
+.mound-mask{
+  /* fill:black;
+  stroke:var(--textcolor);
+  stroke-miterlimit:1px;
+  stroke-width: 1px; */
+
+  background-image: url('../../img/hatches/sand1.gif');
+  height:130px;
+  mask-image: url('../../img/mound-mask.svg');
+  position:absolute;
+  bottom:0; 
+  width:100%;
+  mask-repeat:no-repeat;
+  mask-size: 100% 100%;
+}
+
+.mound-mask2 {
+  
+  position:absolute;
+  bottom:0; 
+  /* fill:black; */
+  stroke:var(--textcolor);
+  stroke-miterlimit:1px;
+  stroke-width: 1px;
+  width:100%;
 }
 
 /* other sections */
 #s0, .s0 {
-  background-image: url('../../img/hatches/4b.gif');
+  background-image: url('../../img/hatches/sand1.gif');
   /* background-color: darkolivegreen; */
 }
 
 #s1, .s1 {
-  background-image: url('../../img/hatches/2b.gif');
+  background-image: url('../../img/hatches/stones3.gif');
 
 }
 
-#s2, .s2 {
-  background-image: url('../../img/hatches/10b.gif');
-}
+/* #s2, .s2 {
+  background-image: url('../../img/hatches/stone.gif');
+} */
 
 #bedrock, .bedrock {
-  background-image: url('../../img/hatches/8b.gif');
+  background-image: url('../../img/hatches/stones1.gif');
 }
 
 /* #main {
@@ -383,9 +451,13 @@ svg {
 .align {
   width: calc(var(--content-width));
   position: relative;
-  margin:3rem 0;
+  margin:12rem 0 3rem 0;
   background: white;
   /* padding:.5rem; */
+}
+
+.align:first-of-type {
+  margin-top:3rem;
 }
 
 .left {
@@ -397,7 +469,8 @@ svg {
 }
 
 .center {
-  margin:3rem auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .right-half {
