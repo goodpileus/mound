@@ -38,15 +38,17 @@ $.each( segments, function(key, value) {
 });
 
 
-//initialize date object
-var d = new Date();
-var currentHour = d.getHours(); //note 0-23
-
-if (currentHour < 18 || currentHour > 4) 
- { 
-     $('.mound-path').addClass('night');
+function checkTime() {
+  var d = new Date();
+  var currentHour = d.getHours(); //note 0-23
+  
+  if (currentHour < 18 || currentHour > 4) { 
+    $('.mound-path').addClass('night');
   }
-else
-{
-   $('.mound-path').addClass('day');
+  else {
+    $('.mound-path').addClass('day');
+  }
 }
+
+checkTime();
+setInterval(checkTime(), (1000 * 60) * 5);
