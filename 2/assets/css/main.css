@@ -475,6 +475,7 @@ section .label h1{
   4% {
     transform: scale(1);
   }
+}
 
 .satellite {
   height:2px;
