@@ -455,25 +455,28 @@ section .label h1{
 }
 
 .star {
-  height:2px;
+  height:1px;
   width:2px;
   /* border-radius: 50%; */
-  background-color:#f14e1c;
+  background-color:#f6f1e1;
   position:absolute;
-  top:50%;
-  left:0;
+  top:70%;
+  left:-5vw;
   z-index: 1;
-  animation:orbit 80s 40s infinite linear;
+  animation:shoot 120s 60s infinite ease;
 }
 
 @keyframes shoot {
   0% {
-    left:0;
-    transform: scale(0);
+    transform: translate(0, 0);
   }
   
-  4% {
-    transform: scale(1);
+  3% {    
+    transform: translate(150vw, -70vh);
+  }
+  
+  100% {    
+    transform: translate(150vw, -70vh);
   }
 }
 
