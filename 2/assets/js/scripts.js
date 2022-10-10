@@ -49,6 +49,8 @@ function checkTime() {
   }
   else {
     $('.mound-path').addClass('day');
+    $('.star').hide();
+    $('.satellite').hide();
   }
 }
 
