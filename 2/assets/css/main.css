@@ -6,9 +6,9 @@
 /* variables for colors */
 :root {
   --text: #000000;
-  --link: #587149;
+  --link: #000000;
 
-  --hover: #ffd4b7;
+  --hover: #d4cec7;
 
   /* --bg: #eaecde; */
   --bg: #ffffff;
@@ -148,6 +148,10 @@ a {
   color: var(--link);
 }
 
+a:hover {
+  background-color: var(--hover);
+}
+
 summary {
   background: var(--bg);
   /* margin-bottom: .5rem; */
@@ -265,7 +269,7 @@ nav a {
 }
 
 nav a span {
-  background: var(--bg);
+  background-color: inherit;
   color: inherit;
   border-top: 1px solid;
   position: absolute;
@@ -419,6 +423,7 @@ section .label h1{
   flex-direction: column;
   justify-content: space-between;
   background-image: url('../../img/hatches/sand1.gif');
+  overflow-x: hidden;
 }
 
 .mound-svg{
@@ -447,6 +452,89 @@ section .label h1{
 
 .mound-path.night {
   fill:black;
+}
+
+.star {
+  height:2px;
+  width:2px;
+  /* border-radius: 50%; */
+  background-color:#f14e1c;
+  position:absolute;
+  top:50%;
+  left:0;
+  z-index: 1;
+  animation:orbit 80s 40s infinite linear;
+}
+
+@keyframes shoot {
+  0% {
+    left:0;
+    transform: scale(0);
+  }
+  
+  4% {
+    transform: scale(1);
+  }
+
+.satellite {
+  height:2px;
+  width:2px;
+  /* border-radius: 50%; */
+  background-color:#f14e1c;
+  position:absolute;
+  top:4.5rem;
+  left:0;
+  transform: scale(0);
+  z-index: 1;
+  animation:orbit 80s 40s infinite linear;
+}
+
+@keyframes orbit {
+  0% {
+    left:0;
+    transform: scale(0);
+  }
+  
+  4% {
+    transform: scale(1);
+  }
+
+  7% {
+    transform: scale(0);
+  }
+
+  16% {
+    transform: scale(1);
+  }
+
+  22% {
+    transform: scale(0);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(0);
+  }
+
+  43% {
+    transform: scale(1);
+  }
+
+  47% {
+    transform: scale(0);
+  }
+
+  50% {
+    left:101vw;
+
+  }
+  100% {
+    left:101vw;
+
+  }
 }
 
 #mound .inner::after {
