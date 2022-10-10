@@ -41,8 +41,10 @@ $.each( segments, function(key, value) {
 function checkTime() {
   var d = new Date();
   var currentHour = d.getHours(); //note 0-23
+
+  console.log(currentHour);
   
-  if (currentHour < 18 || currentHour > 4) { 
+  if (currentHour >= 18 || currentHour <= 4) { 
     $('.mound-path').addClass('night');
   }
   else {
@@ -52,3 +54,7 @@ function checkTime() {
 
 checkTime();
 setInterval(checkTime(), (1000 * 60) * 5);
+
+$('.key-btn').click(function(){
+  $( '.key' ).toggleClass('active');
+});

@@ -5,12 +5,14 @@
 
 /* variables for colors */
 :root {
-  --textcolor: #000000;
-  --linkcolor: #587149;
+  --text: #000000;
+  --link: #587149;
 
-  /* --backgroundcolor: #eaecde; */
-  --backgroundcolor: #ffffff;
-  --altbackgroundcolor: #d6d4c0;
+  --hover: #ffd4b7;
+
+  /* --bg: #eaecde; */
+  --bg: #ffffff;
+  --altbg: #d6d4c0;
 
   /* --content-width: 50vw; */
   --content-width: 650px;
@@ -44,8 +46,8 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--backgroundcolor);
-  color: var(--textcolor);
+  background-color: var(--bg);
+  color: var(--text);
   /* font-family: 'ms mincho', monospace; */
   /* font-family: 'qtlettergoth', monospace; */
   font-family: 'cutive mono', monospace;
@@ -60,7 +62,7 @@ img {
   /* pointer-events: none; */
   padding:.3rem;
   /* margin:0 .5rem .5rem 0; */
-  /* background: var(--backgroundcolor); */
+  /* background: var(--bg); */
 }
 
 img.active,
@@ -106,7 +108,7 @@ img.active,
   background: white;
   padding:2px;
   text-decoration: none;
-  color: var(--textcolor);
+  color: var(--text);
 
   cursor:zoom-in;
 }
@@ -127,7 +129,7 @@ img.active,
 /* TYPOGRAPHY, TEXT */
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 .5rem 0;
-  background: var(--backgroundcolor);
+  background: var(--bg);
   display: inline-block;
   font-weight: normal;
   font-size: 1.2rem;
@@ -135,19 +137,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  background: var(--backgroundcolor);
+  background: var(--bg);
   max-width: var(--content-width);
   padding:.3rem;
   margin: 0 0 .5rem 0;
-  /* border:1px solid var(--textcolor); */
+  /* border:1px solid var(--text); */
 }
 
 a {
-  color: var(--linkcolor);
+  color: var(--link);
 }
 
 summary {
-  background: var(--backgroundcolor);
+  background: var(--bg);
   /* margin-bottom: .5rem; */
   /* margin-right:.6rem; */
   cursor: pointer;
@@ -169,7 +171,7 @@ summary a {
   background: inherit;
   padding:2px;
   text-decoration: none;
-  color: var(--textcolor);
+  color: var(--text);
   cursor:zoom-in;
 }
 
@@ -198,7 +200,7 @@ summary:hover {
   /* background:rgb(224, 224, 224); */
   /* background:#669c51; */
   /* color:white; */
-  background-color: #ffd4b7;
+  background-color: var(--hover);
   /* background-color: rgb(192, 192, 226); */
   
   border-bottom: 1px solid;
@@ -249,14 +251,56 @@ nav {
 }
 
 nav a {
-  background-color: var(--backgroundcolor);
-  color: var(--textcolor);
+  background-color: var(--bg);
+  color: var(--text);
   border: 1px solid;
   padding:.5rem;
   text-align: center;
   text-decoration: none;
-  max-width: 66px;
+  width: 66px;
   height:33px;
+  position:relative;
+
+  height:48px;
+}
+
+nav a span {
+  background: var(--bg);
+  color: inherit;
+  border-top: 1px solid;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80%;
+}
+
+.key-btn {
+  border:1px solid;
+  font-family: inherit;
+  font-size:80%;
+  width: 66px;
+  background: var(--bg);
+  cursor:pointer;
+}
+
+.key-btn:hover {
+  background: var(--hover);
+}
+
+.key {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  display:none;
+}
+
+.key.active {
+  display:flex;
 }
 
 /* SECTIONS */
@@ -379,7 +423,7 @@ section .label h1{
 
 .mound-svg{
   fill:none;
-  stroke:var(--textcolor);
+  stroke:var(--text);
   stroke-miterlimit:1px;
   stroke-width: 1px;
 }
@@ -414,11 +458,21 @@ section .label h1{
   /* background-size: cover; */
   top:0;
   left:0;
+  /* animation:nightmove 300s linear infinite; */
+}
+
+@keyframes nightmove {
+  0% {
+    background-position:0 0;
+  }
+  100% {
+    background-position:100vw 0;
+  }
 }
 
 .mound-mask{
   /* fill:black;
-  stroke:var(--textcolor);
+  stroke:var(--text);
   stroke-miterlimit:1px;
   stroke-width: 1px; */
 
@@ -437,13 +491,17 @@ section .label h1{
   position:absolute;
   bottom:0; 
   /* fill:black; */
-  stroke:var(--textcolor);
+  stroke:var(--text);
   stroke-miterlimit:1px;
   stroke-width: 1px;
   width:100%;
 }
 
 /* other sections */
+a.mound {
+  background-image: url('../../img/hatches/mound-key.gif');
+}
+
 #s0, .s0 {
   background-image: url('../../img/hatches/sand1.gif');
   /* background-color: darkolivegreen; */
@@ -478,6 +536,10 @@ section .label h1{
   background: white;
   /* padding:.5rem; */
   width: 100%;
+}
+
+.text {
+  padding:.5rem;
 }
 
 .align:first-of-type {
@@ -535,7 +597,7 @@ main h1:first-of-type {
 }
 
 .paypal-button .price {
-  background: var(--backgroundcolor);
+  background: var(--bg);
   padding:.3rem;
   margin-bottom: .5rem;
 }
