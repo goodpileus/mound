@@ -17,7 +17,7 @@ openTarget();
 
 
 $( "img" ).click(function() {
-  $( this ).toggleClass('active');
+  $( this ).parent().toggleClass('active');
 });
 
 
