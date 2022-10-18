@@ -692,6 +692,10 @@ main h1:first-of-type {
     padding: 3rem 1rem;
   }
 
+  #mound svg {
+    height:60vh;
+  }
+
   .left, .left-half, .center, .right-half, .right {
     left:0;
     margin-left:0;
